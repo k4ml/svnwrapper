@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Taken from http://www.blisted.org/attachment/blog/bin/svn/stash/svn
-
 usage () {
     cat <<USAGE
 
@@ -264,6 +262,9 @@ case "$1" in
         else
             /usr/bin/svn log -q --stop-on-copy | awk "$revsearch"
         fi
+    ;;
+    addall)
+        /usr/bin/svn status | grep ^? | awk '{print $2}' | xargs /usr/bin/svn add
     ;;
     stash)
         mkdir -p .svn/stash
