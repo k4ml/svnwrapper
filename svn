@@ -205,7 +205,7 @@ case "$1" in
         echo "Merging $2 into the current working copy"
         # Temporarily disabled --reintegrate merges
         # svn server needs updated.
-        /usr/bin/svn merge $branches/$2 .
+        /usr/bin/svn merge --reintegrate $branches/$2 .
     ;;
     mergetrunk|mt)
         working=`svn info | awk '/^URL:/ { print $2 }'`
