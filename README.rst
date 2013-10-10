@@ -5,3 +5,4 @@ Some wrapper command to subversion's svn command. Taken from:-
 Added command:-
 
 * addall - add all untracked files.
+* diffc - Color diff, require colordiff - `sudo apt-get install colordiff`.

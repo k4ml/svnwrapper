@@ -16,6 +16,8 @@ Helper commands:
     resolve-tree    - Mark all tree-conflicts "resolved"
     origin          - Gets the origin of this working copy or specified branch
     stash help      - Shows the help menu for "svn stash"
+    addall          - Add all untracked files.
+    diffc           - Show colored diff.
 USAGE
 }
 
@@ -265,6 +267,9 @@ case "$1" in
     ;;
     addall)
         /usr/bin/svn status | grep ^? | awk '{print $2}' | xargs /usr/bin/svn add
+    ;;
+    diffc)
+        /usr/bin/svn diff $2 | colordiff | less -R
     ;;
     stash)
         mkdir -p .svn/stash
