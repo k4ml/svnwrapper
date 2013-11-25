@@ -276,6 +276,16 @@ case "$1" in
 
         stash "$2" "$3"
     ;;
+    ci)
+        fullpath=`realpath $0`
+        wrapper_dir=`dirname $fullpath`
+        for file in `ls $wrapper_dir/hooks`; do
+            if [ -x "$wrapper_dir/hooks/$file" ]; then
+                "$wrapper_dir/hooks/$file" $@ || exit 1
+            fi
+        done
+        /usr/bin/svn "$@"
+    ;;
     help)
         if [ $# -lt 2 ]
         then
