@@ -6,3 +6,7 @@ Added command:-
 
 * addall - add all untracked files.
 * diffc - Color diff, require colordiff - `sudo apt-get install colordiff`.
+
+Modified:-
+
+* ci - run script in `hooks/` before passing to real svn commit.
