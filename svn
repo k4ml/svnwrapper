@@ -276,7 +276,7 @@ case "$1" in
 
         stash "$2" "$3"
     ;;
-    ci)
+    ci|commit)
         fullpath=`realpath $0`
         wrapper_dir=`dirname $fullpath`
         for file in `ls $wrapper_dir/hooks`; do
